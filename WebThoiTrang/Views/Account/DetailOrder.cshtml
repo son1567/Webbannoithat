@@ -1,0 +1,41 @@
+﻿@model WebThoiTrang.Models.EF.Order
+@{
+    ViewBag.Title = "DetailOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/main_styles.css">
+<hr />
+
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card" style="margin-top: 200px">
+        <div class="card-header">
+            <h3 class="card-title">Chi tiết đơn hàng</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>Danh sách sản phẩm</h4>
+                </div>
+                <div class="col-md-12">
+                    @Html.Action("Partial_Sanpham", "Account", new { id = Model.Id })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 offset-md-6 text-right">
+                    <label>Tổng tiền</label>
+                    <p class="form-control" style="border: none">@WebThoiTrang.Common.FormatNumber(Model.TotalAmount, 0)</p>
+                </div>
+            </div>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
+
+</section>
+
